@@ -50,7 +50,7 @@ wget https://www.melbpc.org.au/wp-content/uploads/2017/10/small-example-pdf-file
 $HOME/fuzzing_xpdf/install/bin/pdfinfo -box -meta $HOME/fuzzing_xpdf/pdf_examples/helloworld.pdf
 ```
 
-![image-20230707113856487](Images\image-20230707113856487.png)
+![image-20230707113856487](Images/image-20230707113856487.png)
 
 接下来安装AFL++测试软件
 
