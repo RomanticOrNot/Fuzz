@@ -32,7 +32,7 @@ make install
 
 接下来准备测试用例
 
-![image-20230708221930977](C:\Users\wn\AppData\Roaming\Typora\typora-user-images\image-20230708221930977.png)
+![image-20230708221930977](Images\image-20230708221930977.png)
 
 ```
 wget https://github.com/ianare/exif-samples/archive/refs/heads/master.zip
