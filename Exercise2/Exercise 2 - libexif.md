@@ -28,11 +28,11 @@ make install
 
 测试exif command-line
 
-![image-20230708221404799](Images\image-20230708221404799.png)
+![image-20230708221404799](Images/image-20230708221404799.png)
 
 接下来准备测试用例
 
-![image-20230708221930977](C:\Users\wn\AppData\Roaming\Typora\typora-user-images\image-20230708221930977.png)
+![image-20230708221930977](Images/image-20230708221930977.png)
 
 ```
 wget https://github.com/ianare/exif-samples/archive/refs/heads/master.zip
@@ -40,7 +40,7 @@ unzip master.zip
 $HOME/fuzzing_libexif/install/bin/exif $HOME/fuzzing_libexif/exif-samples-master/jpg/Pentax_K10D.jpg
 ```
 
-![image-20230708222204517](Images\image-20230708222204517.png)
+![image-20230708222204517](Images/image-20230708222204517.png)
 
 准备好测试用例后我们要利用**afl-clang-lto**作为编译器去对exif软件和libexif库进行重编译来插桩，监测覆盖率
 
@@ -66,12 +66,12 @@ afl-clang-lto是一种无碰撞的工具，而且比afl-clang-fast更快。当�
 
 接下来我们对exif进行测试
 
-![屏幕截图 2023-07-08 202819](Images\屏幕截图 2023-07-08 202819.png)
+![屏幕截图 2023-07-08 202819](Images/屏幕截图 2023-07-08 202819.png)
 
-然后我们利用Eclipse-CDT来进行调试![屏幕截图 2023-07-08 234443](Images\屏幕截图 2023-07-08 233150.png)
+然后我们利用Eclipse-CDT来进行调试![屏幕截图 2023-07-08 234443](Images/屏幕截图 2023-07-08 233150.png)
 
-![image-20230708234521394](Images\image-20230708234521394.png)
+![image-20230708234521394](Images/image-20230708234521394.png)
 
 设置好之后我们对exif进行debug，点击Run -> Resume后程序会在段错误的地方停下，我们可以看见data_load_data函数报错点击发现这个就是[**CVE-2012-2836**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2836)漏洞，这个漏洞会产生整数溢出问题。而[**CVE-2009-3895**](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3895) 可能存在堆上的越界读写行为
 
-![image-20230708224352151](Images\image-20230708224352151.png)
+![image-20230708224352151](Images/image-20230708224352151.png)
